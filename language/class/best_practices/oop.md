@@ -96,12 +96,12 @@ Animal *pAnimal2 = &liz2;
 ### GuideLine: Make non-leaf classes abstract
 
 1. Make every class in your hierarchies either a base-only or a leaf-only.
-![requireDivergence](/home/youzark/projects/cppTutorial/language/class/best_practices/img/requireDivergence.png)
+![requireDivergence](./img/requireDivergence.png)
 
 > give one entity one cohesive responsibility. 
 
 So we should not introduce new requirement(abstractions) within a non-base class.
-![ScottsSolution](/home/youzark/projects/cppTutorial/language/class/best_practices/img/ScottsSolution.png)
+![ScottsSolution](./img/ScottsSolution.png)
 
 2. Make bases:
     1. abstract
