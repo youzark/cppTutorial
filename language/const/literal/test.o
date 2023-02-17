@@ -1,0 +1,75 @@
+	.file	"const.cpp"
+# GNU C++17 (GCC) version 12.2.1 20230111 (x86_64-pc-linux-gnu)
+#	compiled by GNU C version 12.2.1 20230111, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
+
+# GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+# options passed: -mtune=generic -march=x86-64 -O0
+	.text
+	.globl	_Z3fooi
+	.type	_Z3fooi, @function
+_Z3fooi:
+.LFB0:
+	.cfi_startproc
+	pushq	%rbp	#
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp	#,
+	.cfi_def_cfa_register 6
+	movl	%edi, -4(%rbp)	# i, i
+# const.cpp:2:     return i + 109909;
+	movl	-4(%rbp), %eax	# i, tmp84
+	addl	$109909, %eax	#, _2
+# const.cpp:3: }
+	popq	%rbp	#
+	.cfi_def_cfa 7, 8
+	ret	
+	.cfi_endproc
+.LFE0:
+	.size	_Z3fooi, .-_Z3fooi
+	.section	.rodata
+	.align 8
+.LC0:
+	.string	"Why are you here so that the program can detect the difference of small string that can never be held in the assembly code and have to be place in the const degment"
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB1:
+	.cfi_startproc
+	pushq	%rbp	#
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp	#,
+	.cfi_def_cfa_register 6
+	subq	$32, %rsp	#,
+# const.cpp:4: int main() {
+	movq	%fs:40, %rax	# MEM[(<address-space-1> long unsigned int *)40B], tmp88
+	movq	%rax, -8(%rbp)	# tmp88, D.2382
+	xorl	%eax, %eax	# tmp88
+# const.cpp:5:     int i = 1090090;
+	movl	$1090090, -28(%rbp)	#, i
+# const.cpp:6:     char* t = (char *)"Why are you here so that the program can detect the difference of small string that can never be held in the assembly code and have to be place in the const degment";
+	leaq	.LC0(%rip), %rax	#, tmp85
+	movq	%rax, -24(%rbp)	# tmp85, t
+# const.cpp:7:     foo(i);
+	movl	-28(%rbp), %eax	# i, i.0_1
+	movl	%eax, %edi	# i.0_1,
+	call	_Z3fooi	#
+# const.cpp:8:     int *p = &i;
+	leaq	-28(%rbp), %rax	#, tmp86
+	movq	%rax, -16(%rbp)	# tmp86, p
+# const.cpp:10: }
+	movl	$0, %eax	#, _8
+	movq	-8(%rbp), %rdx	# D.2382, tmp89
+	subq	%fs:40, %rdx	# MEM[(<address-space-1> long unsigned int *)40B], tmp89
+	je	.L5	#,
+	call	__stack_chk_fail@PLT	#
+.L5:
+	leave	
+	.cfi_def_cfa 7, 8
+	ret	
+	.cfi_endproc
+.LFE1:
+	.size	main, .-main
+	.ident	"GCC: (GNU) 12.2.1 20230111"
+	.section	.note.GNU-stack,"",@progbits
